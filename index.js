@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
     })
     socket.on('p2_join', (player2) => {
         rooms.forEach((room) => {
-            if (roomID == player2.roomID) {
+            if (room.roomID == player2.roomID) {
                 room.p2ID = player2.p2ID
                 room.p2Name = player2.p2Name
                 socket.emit.broadcast('p2_join', room)
