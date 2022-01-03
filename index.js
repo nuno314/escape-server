@@ -50,8 +50,17 @@ io.on('connection', (socket) => {
         socket.emit('room_list', rooms)
         console.log('FIND_ROOM, ROOM_LIST');
     })
-    
-  //  players.push(new player(socket.id, 0, 0));
+    socket.on('p2_join', (player2) => {
+        rooms.forEach((room) => {
+            if (roomID == player2.roomID) {
+                room.p2ID = player2.p2ID
+                room.p2Name = player2.p2Name
+                socket.emit.broadcast('p2_join', room)
+                return
+            }
+        })
+
+    })
 })
 
 //player = (id, x, y) => {
