@@ -55,7 +55,7 @@ io.on('connection', (socket) => {
             if (room.roomID == player2.roomID) {
                 room.p2ID = player2.p2ID
                 room.p2Name = player2.p2Name
-                socket.emit.broadcast('p2_join', room)
+                socket.emit('p2_join', room)
                 return
             }
         })
